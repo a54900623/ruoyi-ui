@@ -7,7 +7,7 @@
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <search id="header-search" class="right-menu-item" />
+<!--        <search id="header-search" class="right-menu-item" />
 
         <el-tooltip content="源码地址" effect="dark" placement="bottom">
           <ruo-yi-git id="ruoyi-git" class="right-menu-item hover-effect" />
@@ -21,14 +21,24 @@
 
         <el-tooltip content="布局大小" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
-        </el-tooltip>
+        </el-tooltip>-->
 
       </template>
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+<!--        <div class="header-user-info">
+          <div class="user-logo common-img">
+            <img :src="avatar" alt="" onerror="txz.errImg(this)" onload="txz.imgLoad(this)" onclick="login()" style="width: auto; height: 100%;">
+          </div>
+          <span class="user-name">玉兔-易凤</span>
+          <img src="/admin/image/other/dropdown_icon.png" class="dropdown-icon">
+        </div>-->
         <div class="avatar-wrapper">
-          <img :src="avatar" class="user-avatar">
-          <i class="el-icon-caret-bottom" />
+          <div class="user-logo">
+            <img :src="avatar" class="user-avatar">
+          </div>
+          <span class="user-name">玉兔-易凤</span>
+<!--          <i class="el-icon-caret-bottom" />-->
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/user/profile">
@@ -118,6 +128,34 @@ export default {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
+  /*用户信息*/
+  .header-user-info{
+    padding: 6px 10px 4px 10px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .user-logo{
+    display: inline-block;
+    vertical-align: top;
+    //line-height: 50px;
+    //border: 2px solid #fff;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .user-name{
+     font-size: 12px;
+    line-height: 40px;
+    margin-left: 5px;
+    display: inline-block;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -148,7 +186,8 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 50px;
+    //line-height: 50px;
+    margin-right: 50px;
 
     &:focus {
       outline: none;
@@ -183,7 +222,7 @@ export default {
           cursor: pointer;
           width: 40px;
           height: 40px;
-          border-radius: 10px;
+          border-radius: 50%;
         }
 
         .el-icon-caret-bottom {
